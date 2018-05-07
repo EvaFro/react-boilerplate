@@ -9,4 +9,6 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const DEFAULT_LOCALE = 'en';
+export const LOAD_MESSAGES = 'boilerplate/App/LOAD_MESSAGES';
+export const LOAD_MESSAGES_SUCCESS = 'boilerplate/App/LOAD_MESSAGES_SUCCESS';
+export const LOAD_MESSAGES_ERROR = 'boilerplate/App/LOAD_MESSAGES_ERROR';
