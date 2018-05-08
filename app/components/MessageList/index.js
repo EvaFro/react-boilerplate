@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 import MessageItem from '../MessageItem';
 
 function MessageList(props) {
-  let content = (<div>Sorry, No messages posted yet.</div>);
+  let content = (<div></div>);
 
   // If we have posts, render them
   if (props.posts) {
