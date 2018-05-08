@@ -33,11 +33,10 @@ export function loadMessages() {
 /**
  * Dispatched when the messages are loaded by the request saga
  */
-export function messagesLoaded(messages, username) {
+export function messagesLoaded(messages) {
   return {
     type: LOAD_MESSAGES_SUCCESS,
     messages,
-    username,
   };
 }
 

@@ -15,12 +15,6 @@ const makeSelectLoading = () => createSelector(
   (globalState) => globalState.get('loading')
 );
 
-// CurrentUser Success
-const makeSelectCurrentUser = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.getIn(['postData', 'currentUser'])
-);
-
 // Messages Success
 const makeSelectMessages = () => createSelector(
   selectGlobal,
@@ -38,7 +32,6 @@ export {
   selectGlobal,
   makeSelectLocation,
   makeSelectLoading,
-  makeSelectCurrentUser,
   makeSelectMessages,
   makeSelectError,
 };

@@ -8,5 +8,7 @@
  * Follow this format:
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
-// need the en so don't throw err
-export const DEFAULT_LOCALE = 'en';
+
+export const LOAD_MESSAGES = 'boilerplate/MessageBoard/LOAD_MESSAGES';
+export const LOAD_MESSAGES_SUCCESS = 'boilerplate/MessageBoard/LOAD_MESSAGES_SUCCESS';
+export const LOAD_MESSAGES_ERROR = 'boilerplate/MessageBoard/LOAD_MESSAGES_ERROR';

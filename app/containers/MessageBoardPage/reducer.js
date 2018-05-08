@@ -23,7 +23,6 @@ const initialState = fromJS({
   loading: false,
   error: false,
   postData: {
-    currentUser: false,
     savedMessages: false,
   },
 });
@@ -38,8 +37,7 @@ function appReducer(state = initialState, action) {
     case LOAD_MESSAGES_SUCCESS:
       return state
         .setIn(['postData', 'savedMessages'], action.messages)
-        .set('loading', false)
-        .setIn(['postData', 'currentUser'], action.username);
+        .set('loading', false);
     case LOAD_MESSAGES_ERROR:
       return state
         .set('error', action.error)
