@@ -35,7 +35,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/messageboard" component={MessageBoardPage} />
+        <Route path="/messages" component={MessageBoardPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </AppWrapper>
