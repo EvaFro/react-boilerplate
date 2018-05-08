@@ -15,7 +15,7 @@ function MessageList(props) {
     ));
   } else {
     // Otherwise render a single component
-    content = (<MessageItem />);
+    content = (<MessageItem messageItem={'Sorry, No messages posted yet.'} />);
   }
 
   return (
