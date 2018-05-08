@@ -17,9 +17,9 @@ import messages from './messages';
 export default class MessageBoardPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
+      <h3>
         <FormattedMessage {...messages.none} />
-      </h1>
+      </h3>
     );
   }
 }
