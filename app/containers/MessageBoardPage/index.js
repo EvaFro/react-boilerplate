@@ -10,16 +10,17 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 
-import messages from './messages';
+import MessageList from 'components/MessageList';
+// import messages from './messages';
 
 export default class MessageBoardPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h3>
-        <FormattedMessage {...messages.none} />
-      </h3>
+      <div>
+        <MessageList />
+      </div>
     );
   }
 }
