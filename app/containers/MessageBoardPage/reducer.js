@@ -22,7 +22,7 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  posts: [],
+  posts: false,
 });
 
 function messageReducer(state = initialState, action) {
