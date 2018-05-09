@@ -13,7 +13,7 @@
 import { fromJS } from 'immutable';
 
 import {
-  LOAD_MESSAGES,
+  LOAD_MESSAGES_REQUEST,
   LOAD_MESSAGES_SUCCESS,
   LOAD_MESSAGES_ERROR,
 } from './constants';
@@ -22,21 +22,19 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  postData: {
-    savedMessages: false,
-  },
+  posts: [],
 });
 
-function appReducer(state = initialState, action) {
+function messageReducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_MESSAGES:
+    case LOAD_MESSAGES_REQUEST:
       return state
         .set('loading', true)
         .set('error', false)
-        .setIn(['postData', 'savedMessages'], false);
+        .set('posts', []);
     case LOAD_MESSAGES_SUCCESS:
       return state
-        .setIn(['postData', 'savedMessages'], action.messages)
+        .set('posts', action.messages)
         .set('loading', false);
     case LOAD_MESSAGES_ERROR:
       return state
@@ -47,4 +45,4 @@ function appReducer(state = initialState, action) {
   }
 }
 
-export default appReducer;
+export default messageReducer;
