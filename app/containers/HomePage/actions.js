@@ -16,25 +16,38 @@
  */
 
 import {
-  SAVE_POST,
-  CHANGE_POST,
+  POST_REQUEST,
+  POST_ERROR,
+  CHANGE_POST_MESSAGE,
 } from './constants';
 
 /**
- * Changes the input field of the form
+ * Load the messages, this action starts the request saga
  */
-export function changePost(post) {
+export function postingMessage() {
   return {
-    type: CHANGE_POST,
-    post,
+    type: POST_REQUEST,
   };
 }
 
 /**
- * Saves the input field of the form to database
+ * Dispatched when the messages are changed
  */
-export function savePost() {
+
+export function changeCurrentPost(text) {
   return {
-    type: SAVE_POST,
+    type: CHANGE_POST_MESSAGE,
+    text,
   };
 }
+
+/**
+ * Dispatched when loading the messages fails
+ */
+export function messagePostingError(error) {
+  return {
+    type: POST_ERROR,
+    error,
+  };
+}
+
