@@ -21,8 +21,8 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-// Get everything from DB
-app.use('/messages/data', pgQueries.getAllPosts);
+// // Get everything from DB
+app.use('/data', pgQueries.getAllPosts);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

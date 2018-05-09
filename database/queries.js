@@ -9,7 +9,11 @@ function getAllPosts(req, res, next) {
   db.any('select * from messages')
     .then((data) => {
       res.status(200);
-      res.send(data);
+      const returnData = [];
+      for (let i = 0; i < data.length; i += 1) {
+        returnData.push(data[i].messagetext);
+      }
+      res.send(returnData);
     })
     .catch((err) => {
       next(err);
