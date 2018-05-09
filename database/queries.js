@@ -1,0 +1,40 @@
+const pgp = require('pg-promise')({
+  capSQL: true, // generate capitalized SQL
+});
+
+const connectionString = 'postgres://localhost:5432/message_board';
+const db = pgp(connectionString);
+
+function getAllPosts(req, res, next) {
+  db.any('select * from messages')
+    .then((data) => {
+      res.status(200);
+      res.send(data);
+    })
+    .catch((err) => {
+      next(err);
+    });
+}
+
+
+const cs = new pgp.helpers.ColumnSet([
+  'messageText',
+], { table: 'messages' });
+
+function createPost(req, res, next) {
+  const insert = pgp.helpers.insert(req.body, cs);
+  db.none(insert)
+    .then(() => {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'SUCCESS - Inserted one post!',
+        });
+    })
+    .catch((err) => {
+      next(err);
+    });
+}
+
+// add query functions
+module.exports = { getAllPosts, createPost };
