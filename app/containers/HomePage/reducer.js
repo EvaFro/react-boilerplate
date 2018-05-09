@@ -1,5 +1,5 @@
 /*
- * HomeReducer
+ * AppReducer
  *
  * The reducer takes care of our data. Using actions, we can change our
  * application state.
@@ -9,29 +9,39 @@
  * case YOUR_ACTION_CONSTANT:
  *   return state.set('yourStateVariable', true);
  */
+
 import { fromJS } from 'immutable';
 
 import {
-  CHANGE_POST,
-  SAVE_POST,
+  POST_REQUEST,
+  POST_ERROR,
+  CHANGE_POST_MESSAGE,
 } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
-  post: '',
+  posting: false,
+  error: false,
+  currentPost: '',
 });
 
-function homeReducer(state = initialState, action) {
+function messageReducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_POST:
+    case CHANGE_POST_MESSAGE:
       return state
-        .set('post', action.post);
-    case SAVE_POST:
+        .set('currentPost', action.text);
+    case POST_REQUEST:
       return state
-        .set('post', '');
+        .set('posting', true)
+        .set('error', false);
+    case POST_ERROR:
+      return state
+        .set('error', action.error)
+        .set('posting', false)
+        .set('currentPost', '');
     default:
       return state;
   }
 }
 
-export default homeReducer;
+export default messageReducer;
