@@ -10,6 +10,5 @@
  */
 
 export const POST_REQUEST = 'boilerplate/Home/POST_REQUEST';
-export const POST_SUCCESS = 'boilerplate/Home/POST_SUCCESS';
 export const POST_ERROR = 'boilerplate/Home/POST_ERROR';
 export const CHANGE_POST_MESSAGE = 'boilerplate/Home/CHANGE_POST_MESSAGE';
