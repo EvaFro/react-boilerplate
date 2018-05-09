@@ -16,7 +16,7 @@
  */
 
 import {
-  LOAD_MESSAGES,
+  LOAD_MESSAGES_REQUEST,
   LOAD_MESSAGES_SUCCESS,
   LOAD_MESSAGES_ERROR,
 } from './constants';
@@ -24,9 +24,9 @@ import {
 /**
  * Load the messages, this action starts the request saga
  */
-export function loadMessages() {
+export function loadingMessages() {
   return {
-    type: LOAD_MESSAGES,
+    type: LOAD_MESSAGES_REQUEST,
   };
 }
 
