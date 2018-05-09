@@ -11,7 +11,6 @@ import { changeCurrentPost, messagePostingError } from './actions';
 
 
 function postData(postMessage) {
-  console.log('This is my message:', postMessage);
   return axios({
     method: 'post',
     url: 'http://localhost:3000/post',
@@ -22,8 +21,6 @@ function postData(postMessage) {
 // worker saga: makes the api call when watcher saga sees the action
 function* makePostReq() {
   const postMessage = { messagetext: yield select(makeSelectCurrentPost()) };
-  console.log('This is the select:', postMessage);
-
   try {
     yield call(postData, postMessage);
     // dispatch a success action to the store with the messages

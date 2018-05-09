@@ -32,8 +32,7 @@ import saga from './saga';
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const { currentPost, onChangePost, onSubmitForm, error, posting } = this.props;
-
-    console.log('This is currentPost:', currentPost);
+    // console log these values
     console.log('This is posting:', posting);
     console.log('This is error:', error);
 
