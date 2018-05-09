@@ -11,7 +11,7 @@ function MessageList({ loading, error, posts }) {
   // If we have posts, render them
   if (posts.length > 0) {
     content = posts.map((item) => (
-      <MessageItem key={`post-item-${item.id}`} messageItem={item} />
+      <MessageItem key={`post-item-${item}`} messageItem={item} />
     ));
   } else if (loading) {
     content = (<MessageItem messageItem={'Loading. Please wait...'} />);
@@ -34,7 +34,7 @@ function MessageList({ loading, error, posts }) {
 MessageList.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.any,
-  posts: PropTypes.array,
+  posts: PropTypes.any,
 };
 
 export default MessageList;
