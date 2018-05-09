@@ -13,31 +13,22 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
 
 import HomePage from 'containers/HomePage/Loadable';
 import MessageBoardPage from 'containers/MessageBoardPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
-
-const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
-`;
+import Wrapper from './Wrapper';
 
 export default function App() {
   return (
-    <AppWrapper>
+    <Wrapper>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/messages" component={MessageBoardPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </AppWrapper>
+    </Wrapper>
   );
 }
