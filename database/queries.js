@@ -22,19 +22,15 @@ function getAllPosts(req, res, next) {
 
 
 const cs = new pgp.helpers.ColumnSet([
-  'messageText',
+  'messagetext',
 ], { table: 'messages' });
 
 function createPost(req, res, next) {
   const insert = pgp.helpers.insert(req.body, cs);
   db.none(insert)
-    .then(() => {
-      res.status(200)
-        .json({
-          status: 'success',
-          message: 'SUCCESS - Inserted one post!',
-        });
-    })
+  .then((message) => {
+    res.send({ message });
+  })
     .catch((err) => {
       next(err);
     });

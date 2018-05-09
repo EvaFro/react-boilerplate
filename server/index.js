@@ -2,6 +2,7 @@
 
 const express = require('express');
 const logger = require('./logger');
+const bodyParser = require('body-parser');
 
 const argv = require('./argv');
 const port = require('./port');
@@ -21,8 +22,13 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-// // Get everything from DB
+app.use(bodyParser.json());
+
+// Get everything from DB
 app.use('/data', pgQueries.getAllPosts);
+
+// Get everything from DB
+app.use('/post', pgQueries.createPost);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
