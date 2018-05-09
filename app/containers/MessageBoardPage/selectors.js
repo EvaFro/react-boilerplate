@@ -1,36 +1,28 @@
 import { createSelector } from 'reselect';
 
-const selectGlobal = (state) => state.get('global');
-const selectRoute = (state) => state.get('route');
-
-// Location
-const makeSelectLocation = () => createSelector(
-  selectRoute,
-  (routeState) => routeState.get('location').toJS()
-);
+const selectMessageBoard = (state) => state.get('messageBoard');
 
 // Loading Data
 const makeSelectLoading = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('loading')
+  selectMessageBoard,
+  (messageBoardState) => messageBoardState.get('loading')
 );
 
 // Messages Success
 const makeSelectMessages = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.getIn(['postData', 'savedMessages'])
+  selectMessageBoard,
+  (messageBoardState) => messageBoardState.get('posts')
 );
 
 // Error
 const makeSelectError = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('error')
+  selectMessageBoard,
+  (messageBoardState) => messageBoardState.get('error')
 );
 
 
 export {
-  selectGlobal,
-  makeSelectLocation,
+  selectMessageBoard,
   makeSelectLoading,
   makeSelectMessages,
   makeSelectError,
