@@ -9,5 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const SAVE_POST = 'boilerplate/Home/SAVE_POST';
-export const CHANGE_POST = 'boilerplate/Home/CHANGE_POST';
+export const POST_REQUEST = 'boilerplate/Home/POST_REQUEST';
+export const POST_SUCCESS = 'boilerplate/Home/POST_SUCCESS';
+export const POST_ERROR = 'boilerplate/Home/POST_ERROR';
+export const CHANGE_POST_MESSAGE = 'boilerplate/Home/CHANGE_POST_MESSAGE';
