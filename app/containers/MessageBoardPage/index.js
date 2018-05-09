@@ -38,8 +38,6 @@ export class MessageBoardPage extends React.PureComponent { // eslint-disable-li
       posts,
     };
 
-    console.log('this is Post:', posts);
-
     return (
       <div>
         <MessageList {...postProps} />
