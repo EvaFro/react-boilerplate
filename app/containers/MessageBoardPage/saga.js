@@ -5,18 +5,18 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-import { LOAD_MESSAGES } from './constants';
+import { LOAD_MESSAGES_REQUEST } from './constants';
 import { messagesLoaded, messageLoadingError } from './actions';
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export default function* watcherSaga() {
-  yield takeLatest(LOAD_MESSAGES, workerSaga);
+  yield takeLatest(LOAD_MESSAGES_REQUEST, workerSaga);
 }
 
 function getAllPosts() {
   return axios({
     method: 'get',
-    url: 'http://localhost:3000/messages',
+    url: 'http://localhost:3000/data',
   });
 }
 
@@ -24,7 +24,7 @@ function getAllPosts() {
 function* workerSaga() {
   try {
     const response = yield call(getAllPosts);
-    const messages = response.data.message;
+    const messages = response.data;
     // dispatch a success action to the store with the messages
     yield put(messagesLoaded(messages));
   } catch (error) {
